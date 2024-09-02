@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Extracting Latent Moral Information from Text with ChatGPT</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/scipo.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<div class="withbg">
+					<h4>Internet Research with Foundation Models?</h4>
+					<h3>Multiverse Analysis of <br>Linguistic and Contextual Bias in <br>Large Language Models</h3>
+					<h4 style ="color:#333">Justin Chun-ting Ho</h4>
+					<small>Amsterdam School of Communication Research</small>
+
+					<p><small>In collaboration with Chung-hong Chan (GESIS)</small></p>
+					<!-- <p><img src="uvalogo.png" width="32%" style="background:none; border:none; box-shadow:none;"></p> -->
+					<!-- <small>Materials: <a href="http://bit.ly/digicomworkshop">http://bit.ly/digicomworkshop</a></small> -->
+
+				</div>
+				</section>
+				<section>
+					<h3>"English before Everything"</h3>
+				</section>
+				<section>
+					<h4>Indo-European Languages</h4>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Indo-European-speaking_world.png" width="100%" style="background:none; border:none; box-shadow:none;"><br>
+				</section>
+				<section>
+					<h4>Democracy Index</h4>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Democracy_Index_2020.svg/1280px-Democracy_Index_2020.svg.png" width="100%" style="background:none; border:none; box-shadow:none;"><br>
+				</section>
+				<section>
+					<h4>GDP per Capital</h4>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Map_of_countries_by_GDP_%28nominal%29_per_capita_in_2023.svg/1024px-Map_of_countries_by_GDP_%28nominal%29_per_capita_in_2023.svg.png" width="100%" style="background:none; border:none; box-shadow:none;"><br>
+				</section>
+				<section data-background-size="50%" data-background="ccr.png">
+				<div class="fragment" style="background-color:rgba(255,255,255,0.7);">
+					<ul>
+						<li>Performance are affected by linguistic and societal information in training data</li>
+						<li class="fragment" >Linguistic bias: discrepancy in performance across languages</li>
+						<li class="fragment" >Contextual bias: discrepancy in performance across materials produced in different social contexts</li>
+					</ul>
+				</div>
+				</section>
+				<section>
+					<h3>What about ChatGPT (and other LLM)?</h3>
+				</section>
+				<section>
+					<h3>Multilingual LLM</h3>
+					<p><ul>
+						<li>65 out of the 95 languages supported by ChatGPT are Indo-European languages</li>
+						<li>Most texts in Red Pajama 2 are English: 14.5 billion out of 20.8 billion. All are Indo-European languages</li>
+						<li>Over 40% documents of Common Crawl are English</li>
+					</ul></p>
+				</section>
+				<section>
+					<h2>Analysis</h2>
+				</section>
+				<section>
+					<h3>Multiverse Analysis</h3>
+					<img src="https://cran.r-project.org/web/packages/multiverse/readme/vignettes/figures/00-reporting-strategies.png" width="100%" style="background:none; border:none; box-shadow:none;">
+					<small>(Source: Sarma A et al. (2021). “multiverse: Multiplexing Alternative Data Analyses in R Notebooks (Version 0.6.1).” OSF Preprints. https://github.com/MUCollective/multiverse.)</small>
+				</section>
+					<section>
+						<h3>Methodology</h3>
+						<ul>
+							<li>Data: Parliamentary texts from UK, Basque, HK, Taiwan</li>
+							<li>Task: Predict policy area based on Comparative Agendas Project</li>
+							<li>Synthetic data pairs to test LS and CS</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Synthetic Data Pairs</h3>
+						<table>
+							<thead>
+								<tr>
+									<td></td>
+									<td><b>High LS <br><small>(Indo-European)</small></b></td>
+									<td><b>Low LS <br><small>(Non-Indo-European)</small></b></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><b>High CS <br><small>(European)</small></b></td>
+									<td><span>UK (English)</span>, <br><span style="color:blue;">Basque (English)</span></td>
+									<td><span style="color:blue;">UK (Chinese)</span>, <br><span>Basque (Basque)</span></td>
+								</tr>
+								<tr>
+									<td><b>Low CS <br><small>(Non-European)</small></b></td>
+									<td><span>HK (English)</span>, <br><span style="color:blue;">Taiwan (English)</span></td>
+									<td><span>HK (Chinese)</span>, <br><span>Taiwan (Chinese)</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</section>					
+					<section>
+						<h3>Multiverse Analysis</h3>
+						<small>
+							<table><thead>
+								<tr>
+									<th>Multiverse elements</th>
+									<th>Options</th>
+									<th>n options</th>
+								</tr></thead>
+								<tbody>
+									<tr>
+										<td>LLM Model</td>
+										<td>GPT-4<br>GPT-4o<br>GPT-4o mini<br>Mixtral<br>Mistral Large<br>Llama 2<br>Llama 3<br>Llama 3.1<br>Gemini 1.0 Pro<br>Gemini 1.0 Pro<br>Gemini 1.5 Pro</td>
+										<td>11</td>
+									</tr>
+									<tr>
+										<td>Temperature</td>
+										<td>Lowest (0)<br>Default (0.8 or 1)</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>Setup</td>
+										<td>Zero-shot<br>One-shot<br>Three-shot</td>
+										<td>3</td>
+									</tr>
+									<tr>
+									</tr>
+								</tbody>
+							</table>
+						</small>
+					</section>
+				<section>
+					<h2>Results</h2>
+				</section>
+				<section>
+					<h4>Multiverses</h4>
+					<img src="acc_allparam.png" width="50%" style="background:none; border:none; box-shadow:none;">
+				</section>
+				<section>
+					<h4>Specification Curve</h4>
+					<img src="spec_curve.png" width="50%" style="background:none; border:none; box-shadow:none;">
+				</section>
+				<section>
+				<section>
+					<h4>Case Type</h4>
+					<img src="acc_typo.png" width="50%" style="background:none; border:none; box-shadow:none;">
+				</section>
+				<section>
+					<h4>Case Type</h4>
+					<img src="acc_typo_ridges.png" width="50%" style="background:none; border:none; box-shadow:none;">
+				</section>
+				<section>
+					<h4>Case Type by Model</h4>
+					<img src="acc_typo_model_stable.png" width="50%" style="background:none; border:none; box-shadow:none;">
+				</section>
+				</section>
+				<section>
+					<h4>N-Shot</h4>
+					<img src="acc_shot.png" width="70%" style="background:none; border:none; box-shadow:none;">
+				</section>
+				<section>
+					<h3>Takeaways</h3>
+					<p><ul>
+						<li>Linguistic and Contextual Biases exist in LLM</li>
+						<li>Hierarchy of case types</li>
+						<li>Model matters</li>
+					</ul></p>
+				</section>
+				<section>
+					<h3>Considerations</h3>
+					<p><ul>
+						<li>What about open science?</li>
+						<li>Cost (monetary, or even environmental?)</li>
+					</ul></p>
+				</section>
+				<section>
+					<h2>Thank You!</h2>
+					<h4>Twitter/X: @justin_ct_ho<br>Github: justinchuntingho<br>Email: j.c.ho@uva.nl</h4>
+				</section>
+				</div>
+			</div>
+
+			<script src="dist/reveal.js"></script>
+			<script src="plugin/notes/notes.js"></script>
+			<script src="plugin/markdown/markdown.js"></script>
+			<script src="plugin/highlight/highlight.js"></script>
+			<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+				Reveal.initialize({
+					hash: true,
+					slideNumber: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+					plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				});
+			</script>
+		</body>
+		</html>
